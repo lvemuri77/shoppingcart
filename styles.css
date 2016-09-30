@@ -1,0 +1,39 @@
+.items-box{
+	border:1px solid #000;
+	min-height: 430px;
+}
+
+.price{
+	color:#4dd663;
+}
+
+.active{
+	background: none;
+}
+.navbar-default .navbar-nav>li>a{
+	color:white;
+}
+
+.foot{
+
+	background: #094e75;
+	height: 40px;
+	line-height: 40px;
+}
+
+.menu-color{
+	color: #fff;
+}
+
+nav>a{
+	border-right: 1px solid white;
+	padding: 3px 6px;
+}
+nav > a:hover{
+	color:#cfd2d3;
+}
+
+.chgqty{
+	border-radius:50%;
+	margin:0px 5px;
+}

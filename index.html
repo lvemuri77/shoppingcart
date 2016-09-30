@@ -1,0 +1,160 @@
+<!doctype html>
+<html ng-app="myApp" >
+
+   <head>
+      <title>Flipcart</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	   <link href="css/bootstrap.min.css" rel="stylesheet" />
+	   <script src="js/jquery.min.js"></script>
+
+       <script src="js/bootstrap.min.js"></script>
+	   <link href="styles.css" rel="stylesheet" />
+
+
+
+   </head>
+   <body ng-controller ="ShopController" >
+
+      <div>
+      <nav class="navbar navbar-default" style="background:#094e75" >
+		  <div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				 </button>
+			  <a class="navbar-brand" href="#" style="padding:0"><img src="Images/logo.png"/></a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li><a href="" ng-click="page=!true" class="menu-color">HOME </a></li>
+				<li><a href="#" ng-click="page=true" class="menu-color">CART</a></li>
+
+			  </ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="" ng-click="page=true" class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"><sup>{{itemdisplay}}</sup>
+						<span  style="font-size:small;">{{disp() | currency}}</span>
+					</a></li>
+				</ul>
+
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+	<div class="container"  ng-hide="page">
+       <div class="row" ng-init="total=0">
+
+           <div class="col-md-3" ng-repeat ="item in items">
+            <div class="well items-box">
+               <h3 class="text-center" ng-model="item.name"> {{ item.name }}</h3>
+			   <img class="center-block" ng-src="{{ item.image }}"/>
+
+               <p class="text-justify" style="margin-top:10px;min-height:120px;">{{ item.content}}</p>
+				<p class="price" ng-model="item.price" ng-change="getPriceList(item);">{{ item.price|currency }}</p>
+
+				<form name="quantity">
+				<input type="number" min="1" max="20" ng-model='qty' ng-hide="hiddenbtn[$index]" />
+
+				<button type="submit" ng-disabled="((itemval==0) || (itemval<0) || (itemval>20) ||  quantity.$invalid)" class="btn btn-info btn-md" ng-click="AddInCart(qty,item.price,item.name,$index)"
+						ng-hide="hiddenbtn[$index]" >Add to Cart </button>
+
+				<h6 style="font-size:10px" ng-show="hiddenbtn[$index]">
+					This item is added in your cart<button type="button" class="btn btn-danger btn-xs"
+					ng-click="removeCartItem(qty,item.price,item.name,$index);qty=1">Remove</button>
+				</h6>
+				</form>
+            </div>
+
+     	</div>
+	   </div>
+      </div>
+
+	<div class="container" ng-show="page">
+
+		<div ng-show="totalquantity==0">
+            <a href="index.html" class="btn btn-danger btn-xl col-lg-7 col-md-5 col-md-push-2 col-xs-12 glyphicon glyphicon-alert"> ADD ITEMS TO THE CART</a> <br /><br />
+            <img style="width:100%;height:800px;border-radius:50px" src="images/empty.jpg" class="img-responsive" />
+        </div>
+
+
+
+		<div ng-show="totalquantity!=0" class="table-responsive" style="width:100%" >
+				<table class="table">
+					<thead>
+					<tr>
+						<th> </th>
+					 	<th> Name of the item</th>
+						<th> Quantity</th>
+						<th> Price</th>
+						<th> Subtotal</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="cart in cartItems">
+						<td class="col-md-3"><button type="button" class="btn btn-danger btn-xs" ng-click="removeCart(cart.q,cart.p,cart.n);"><span class="glyphicon glyphicon-remove"> </span> Remove</button></td>
+						<td>{{cart.n}}</td>
+						<td class="col-md-3">{{cart.q}}</td>
+						<td class="col-md-3">{{cart.p | currency}}</td>
+						<td class="col-md-3">{{cart.t | currency}}</td>
+				  	</tr>
+					<tr>
+						<td></td>
+						<td class="col-md-3">Tax</td>
+						<td class="col-md-3">-</td>
+						<td class="col-md-3">6%</td>
+						<td class="col-md-3">{{(6/100)*totalprice| currency}}</td>
+				  	</tr>
+					<tr>
+						<td></td>
+						<td class="col-md-3">Shipping</td>
+						<td class="col-md-3">-</td>
+						<td class="col-md-3">10</td>
+						<td class="col-md-3">10</td>
+				  	</tr>
+					</tbody>
+
+					<tr class="panel panel-info">
+						<th></th>
+						 <th colspan="3" align="right">Total Amt:</th>
+						 <th colspan="2">{{totalprice+10+((6/100)*totalprice)| currency}}</th>
+					</tr>
+					<tr style="text-align:right">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="btn btn-success">Proceed to CHECKOUT &nbsp<span class="glyphicon glyphicon-circle-arrow-right"> </span></button></td>
+                    </tr>
+				</table>
+			</div>
+    </div>
+
+	  <footer class="footer">
+		  <div class="container-fluid">
+		  	<div class="row foot">
+				<div class="col-md-8 text-center menu-color"> &copy; Copyright shoppingcart 2016.</div>
+				<div class="col-md-4">
+					<nav class="nav nav-inline text-center ">
+						  <a class="nav-link menu-color" active href="#">About Us</a>
+						  <a class="nav-link menu-color" href="#">Blog</a>
+						  <a class="nav-link menu-color" href="#">Contact</a>
+					</nav>
+				</div>
+
+			</div>
+		  </div>
+	  </footer>
+
+
+	   </div>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+
+	   	   <script src="js/appModule.js"></script>
+
+   </body>
+</html>

@@ -1,0 +1,57 @@
+[
+
+  {
+    "name": "Google Glasses",
+    "image": "Images/glasses.jpg",
+    "content": "Google Glass displays information in a smartphonelike hands-free format.Wear this Glass and you will have insight into all the world's knowledge.",
+    "price": 1499.99
+  },
+  {
+    "name": "Lakers kit",
+    "image": "Images/kit.jpg",
+    "content": "LOS ANGELES LAKERS LIMITED EDITION KOBE BRYANT 2012 MVP ALL STAR PLAYER T-SHIRT and they have a distinctive soft texture compared to shirts.",
+    "price": 45
+  },
+  {
+    "name": "Fossil watch",
+    "image": "Images/watch.jpg",
+    "content": "A colorful dial and matching leather strap. Influenced by the neutral tones of mid-century pottery, this multifunction watch complements almost any outfit",
+    "price" :  159.99
+  },
+  {
+    "name": "Star Wars Cap",
+    "image": "Images/cap.jpg",
+    "content": "Our Legacy91 silhouette in cotton twill features a TPU crest graphic at center front. Pop color button and underbill. This cap has a self-fabric strap back with metal hardware.",
+    "price": 79.99
+  },
+  {
+    "name": "Beats Studio",
+    "image": "Images/beats.jpg",
+    "content": "Connectivity Technology: Wired Sound Mode: Stereo Earpiece Design: Over-the-head Earpiece Type: Binaural Integrated Microphone: Yes Color: Black Form Factor.",
+    "price": 299
+  },
+  {
+    "name": "Mac PC",
+    "image": "Images/mac.jpg",
+    "content": "iMac offers a spectacular Retina® 5K display on the 27 model.So photos and videos look crystal clear and vibrant,powerful Intel processor.",
+    "price": 1259.99
+  },
+  {
+    "name": "Fastrack Bag",
+    "image": "Images/fastrack.jpg",
+    "content": "An everyday backpack with criss-cross quick access pockets(distinctive soft texture compared to regular), a funky compartment and a unique design from fastrack.",
+    "price": 124.99
+  },
+  {
+    "name": "NIKE - Sonic",
+    "image": "Images/nike19.jpg",
+    "content": "Built for the neutral to underpronator. Breathable jersey mesh and synthetic upper materials.Padded tongue and collar.Soft fabric lining.",
+    "price": 309.99
+  },
+  {
+    "name": "Wrist Band",
+    "image": "Images/wristband.jpg",
+    "content": "Typically made of cotton fibers knitted in a jersey stitch, they have a distinctive soft texture compared to woven style. The majority of modern versions.",
+    "price": 14.99
+  }
+]
